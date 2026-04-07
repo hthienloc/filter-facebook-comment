@@ -2,71 +2,47 @@
   <img src="assets/logo.png" width="200" alt="Facebook Affiliate Comment Filter Logo">
 </p>
 
-# Facebook Affiliate Comment Filter
+# Facebook Affiliate Comment Filter 🛡️
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)]()
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/hthienloc/filter-facebook-comment)
 
-A lightweight userscript that automatically detects and hides affiliate spam and promotional comments on Facebook.
+**Facebook Affiliate Comment Filter** là một userscript nhẹ nhàng giúp tự động phát hiện và ẩn các bình luận spam affiliate, quảng cáo vặt trên Facebook.
+
+## ✨ Tính năng hiện tại
+
+- **Lọc Link Affiliate**: Tự động nhận diện các tên miền phổ biến (Shopee, Lazada, bit.ly, v.v.).
+- **Chặn Từ Khóa SPAM**: Ẩn các bình luận chứa các từ khóa như "chốt đơn", "voucher", "mã giảm giá", "link mua".
+- **Hỗ trợ Cuộn Vô Tận**: Sử dụng `MutationObserver` để xử lý các bình luận mới ngay khi chúng được tải.
+- **Bảo mật & Riêng tư**: Chạy hoàn toàn trên trình duyệt của bạn, không gửi dữ liệu ra bên ngoài.
+- **Nhật ký hoạt động**: Hiển thị thông báo trong Console trình duyệt khi có bình luận bị ẩn.
+
+## 🚀 Cài đặt
+
+1. Cài đặt một trình quản lý userscript (Tiện ích mở rộng trình duyệt):
+    - **Tampermonkey** (Khuyên dùng): [Chrome](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/), [Edge](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd).
+    - Hoặc **Greasemonkey**, **Violentmonkey**.
+2. Nhấp vào đường link script: [filter-fb-affiliate.user.js](https://github.com/hthienloc/filter-facebook-comment/raw/main/filter-fb-affiliate.user.js).
+3. Nhấn **Install** (Cài đặt).
+4. Truy cập [facebook.com](https://www.facebook.com) và trải nghiệm bảng tin sạch sẽ!
+
+## 🛠️ Phát triển
+
+Dự án này sử dụng JavaScript thuần túy để đảm bảo hiệu năng và tính tương thích cao nhất.
+
+### Cấu trúc project
+
+```text
+.
+├── assets/                       # Logo và hình ảnh preview
+├── tests/                        # Bộ test logic lọc spam
+├── filter-fb-affiliate.user.js   # File script chính
+└── README.md                     # Tài liệu hướng dẫn
+```
+
+## 📜 Giấy phép
+
+Phân phối theo giấy phép MIT. Xem `LICENSE` để biết thêm chi tiết.
 
 ---
-
-[Tiếng Việt bên dưới](#hướng-dẫn-cài-đặt)
-
-## 🚀 Overview
-
-Tired of seeing "chốt đơn", Shopee links, and other affiliate spam in the comment sections of popular Facebook posts? This userscript uses a combination of domain matching and keyword analysis to clean up your feed in real-time.
-
-## ✨ Features
-
-- **Automatic Detection**: Proactively identifies affiliate link domain patterns (Shopee, Lazada, bit.ly, etc.).
-- **Keyword Filtering**: Blocks comments containing promotional buzzwords like "voucher", "mã giảm giá", "link mua".
-- **Dynamic Loading Support**: Uses `MutationObserver` to process comments as you scroll (infinite scroll support).
-- **Privacy Focused**: Runs entirely in your browser without sending data to external servers.
-
-## 🛠️ Installation
-
-1. **Install a userscript manager**:
-    - [Tampermonkey](https://www.tampermonkey.net/) (Recommended)
-    - [Greasemonkey](https://www.greasespot.net/)
-2. **Add the script**:
-    - Open the userscript manager dashboard.
-    - Select **Create a new script**.
-    - Copy the full content of `filter-fb-affiliate.user.js` from this repository.
-    - Paste it into the editor and press `Ctrl+S` to **Save**.
-3. **Enjoy**: Refresh Facebook, and the script will start working immediately.
-
----
-
-## 🇻🇳 Hướng dẫn cài đặt
-
-Bạn mệt mỏi vì phải thấy hàng loạt bình luận "chốt đơn", link Shopee affiliate, hay spam rác trên Facebook? Công cụ này sẽ giúp bạn dọn dẹp bảng tin một cách tự động.
-
-### 🔨 Cách cài đặt chi tiết
-
-1. **Cài đặt tiện ích quản lý script**:
-    - Nếu bạn dùng Chrome/Edge/Brave: Cài đặt **[Tampermonkey](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)** từ Store.
-    - Nếu bạn dùng Firefox: Cài đặt **[Tampermonkey cho Firefox](https://addons.mozilla.org/vi/firefox/addon/tampermonkey/)**.
-2. **Thêm Script lọc**:
-    - Nhấn vào biểu tượng Tampermonkey trên thanh công cụ trình duyệt -> Chọn **Dashboard** (Bảng điều khiển).
-    - Nhấn vào tab **+** (Create a new script).
-    - Xóa hết code mặc định, sau đó copy toàn bộ nội dung file `filter-fb-affiliate.user.js` trong kho lưu trữ này và dán vào.
-    - Vào **File** -> **Save** (hoặc nhấn `Ctrl+S`).
-3. **Sử dụng**: Truy cập Facebook và tận hưởng bảng tin sạch bóng spam.
-
-### 🔍 Cơ chế hoạt động
-
-Script sẽ theo dõi các thay đổi trên trang (khi bạn cuộn chuột). Nếu phát hiện bình luận có chứa link Shopee, Lazada hoặc các từ khóa như "voucher", "link mua", nó sẽ tự động ẩn bình luận đó đi.
-
-## 🤝 Contributing
-
-Contributions are welcome! If you find new spam patterns:
-
-1. Fork the repository.
-2. Create a feature branch (`git checkout -b feat/new-pattern`).
-3. Commit your changes.
-4. Push to the branch and open a Pull Request.
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Phát triển bởi **hthienloc**.

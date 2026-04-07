@@ -3,11 +3,14 @@
 // @namespace    http://tampermonkey.net/
 // @version      1.0
 // @description  Automatically hide comments containing affiliate links or promotional keywords on Facebook.
-// @author       Antigravity
+// @author       hthienloc
 // @match        https://www.facebook.com/*
+// @updateURL    https://github.com/hthienloc/filter-facebook-comment/raw/main/filter-fb-affiliate.user.js
+// @downloadURL  https://github.com/hthienloc/filter-facebook-comment/raw/main/filter-fb-affiliate.user.js
 // @grant        none
 // @run-at       document-idle
 // ==/UserScript==
+
 
 (function() {
     'use strict';
